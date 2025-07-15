@@ -30,7 +30,6 @@ export async function POST(request: Request) {
 
     const client = await clientPromise
     const db = client.db("audiobooks")
-    console.log("Connected to MongoDB")
     const body = await request.json()
 
     const newBook = {

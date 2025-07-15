@@ -8,7 +8,6 @@ export interface UploadResult {
 export const uploadFile = async (file: File, path: string): Promise<UploadResult> => {
   try {
     // Upload file to Supabase Storage
-    console.log(`Uploading file to path: ${path}`)
     const { data, error } = await supabase.storage.from("audiobooks").upload(path, file, {
       cacheControl: "3600",
       upsert: false,

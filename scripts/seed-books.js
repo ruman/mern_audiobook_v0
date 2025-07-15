@@ -1,15 +1,8 @@
-const { MongoClient, ServerApiVersion } = require("mongodb")
-require('dotenv').config()
+// Script to seed the MongoDB database with sample audiobooks
+const { MongoClient } = require("mongodb")
 
 const uri = process.env.MONGODB_URI || "mongodb://localhost:27017"
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-})
-console.log(uri)
+const client = new MongoClient(uri)
 
 const sampleBooks = [
   {

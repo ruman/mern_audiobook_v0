@@ -1,9 +1,8 @@
+// Script to set up Supabase storage buckets and policies
 const { createClient } = require("@supabase/supabase-js")
-require('dotenv').config()
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
-console.log(supabaseUrl, supabaseServiceKey)
 
 if (!supabaseUrl || !supabaseServiceKey) {
   console.error("Missing Supabase environment variables")
@@ -30,7 +29,7 @@ async function setupStorage() {
         "audio/m4a",
         "audio/ogg",
       ],
-      fileSizeLimit: 49857600, // 50 MB limit
+      fileSizeLimit: 104857600, // 100MB
     })
 
     if (bucketError && bucketError.message !== "Bucket already exists") {
